@@ -1,0 +1,196 @@
+{
+  "terminal.integrated.enableImages": true,
+  "workbench.colorTheme": "Solarized Dark",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["Esc"],
+    },
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"],
+    }, // moveLineDown
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"],
+    }, // moveLineUp
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"],
+    },
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"],
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"],
+    },
+  ],
+  // "accelerated.resetTime": 5,
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "gopls": {
+    "formatting.gofumpt": true,
+    "ui.semanticTokens": true,
+  },
+  // "[typescript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //   "editor.formatOnSave": true,
+  // },
+  // "[typescriptreact]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //   "editor.formatOnSave": true,
+  // },
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //   "editor.formatOnSave": true,
+  // },
+  // "[javascriptreact]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //   "editor.formatOnSave": true,
+  // },
+  "[python]": {
+    "editor.formatOnSave": false,
+  },
+  // "[typescript]": {
+  //   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  //   "editor.formatOnSave": true,
+  // },
+  // "[typescriptreact]": {
+  //   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  //   "editor.formatOnSave": true,
+  // },
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  //   "editor.formatOnSave": true,
+  // },
+  // "[javascriptreact]": {
+  //   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  //   "editor.formatOnSave": true,
+  // },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "editor.lineNumbers": "relative",
+  "editor.rulers": [80],
+  // Wraps after 80 characters
+  "rewrap.wrappingColumn": 80,
+  // "jest.runMode": "on-demand",
+  "redhat.telemetry.enabled": false,
+  // "github.copilot.editor.enableAutoCompletions": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "typescript": false,
+  },
+  "gitlens.rebaseEditor.ordering": "asc",
+  "docker.extension.enableComposeLanguageServer": false,
+  "editor.minimap.enabled": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+  },
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true,
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  // Red Hat YAML formatter defaults to double quotes; keep single quotes on save
+  "yaml.format.singleQuote": true,
+  "chat.instructionsFilesLocations": {
+    ".github/instructions": true,
+    ".claude/rules": true,
+    "~/.copilot/instructions": true,
+    "~/.claude/rules": true,
+    "/var/folders/zg/7xls51bx7flbdg33hkd139x80000gn/T/postman-collections-post-response.instructions.md": true,
+    "/var/folders/zg/7xls51bx7flbdg33hkd139x80000gn/T/postman-collections-pre-request.instructions.md": true,
+    "/var/folders/zg/7xls51bx7flbdg33hkd139x80000gn/T/postman-folder-post-response.instructions.md": true,
+    "/var/folders/zg/7xls51bx7flbdg33hkd139x80000gn/T/postman-folder-pre-request.instructions.md": true,
+    "/var/folders/zg/7xls51bx7flbdg33hkd139x80000gn/T/postman-http-request-post-response.instructions.md": true,
+    "/var/folders/zg/7xls51bx7flbdg33hkd139x80000gn/T/postman-http-request-pre-request.instructions.md": true,
+  },
+  "editor.formatOnSave": true,
+  "claudeCode.preferredLocation": "sidebar",
+  "postman.mcp.notifications.postmanMCP": false,
+  "githubPullRequests.pullBranch": "never",
+  "editor.accessibilitySupport": "off",
+  "git.autoRepositoryDetection": "subFolders",
+  "git.detectSubmodules": false,
+  "git.detectSubmodulesLimit": 50,
+  "json.schemaDownload.trustedDomains": {
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://www.schemastore.org/": true,
+    "https://opencode.ai/config.json": true,
+  },
+  "llama-vscode.enabled": false,
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "contexts/PoolsContext.tsx",
+    "app/(tabs)/new-pool.tsx",
+  ],
+  // Highlight characters that can be confused with basic ASCII characters
+  "editor.unicodeHighlight.ambiguousCharacters": true,
+  // Highlight characters that are invisible (like non-breaking spaces)
+  "editor.unicodeHighlight.invisibleCharacters": true,
+  // Highlight all non-ASCII characters (useful for strict code review)
+  "editor.unicodeHighlight.nonBasicASCII": true,
+  // Enable highlighting even inside code comments
+  "editor.unicodeHighlight.includeComments": true,
+  // Enable highlighting inside string literals
+  "editor.unicodeHighlight.includeStrings": true,
+  "eslint.migration.2_x": "off",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "atlascode.jira.enabled": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "intellij.region": "europe",
+  "intellij.dataSharing": "none",
+  "claudeCode.useTerminal": true,
+  "atlascode.rovodev.showEntitlementNotifications": false,
+  "yaml.disableSchemaDetection": [],
+}

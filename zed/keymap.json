@@ -1,0 +1,100 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+//
+// Migrated from VS Code keybindings.json and VSCodeVim settings on 2026-10-08.
+// How precedence works: a binding in a deeper context wins (Editor > Pane > Workspace).
+// Bindings with no "context" match at the deepest level, so they act like VS Code
+// bindings without a "when" clause. `null` unbinds a key, like VS Code's "-command".
+// Zed spells shifted symbols by the character they type: shift+cmd+3 is "cmd-#".
+[
+  // VS Code bindings without a "when" clause (active everywhere).
+  {
+    "bindings": {
+      "cmd-k cmd-/": "pane::SplitDown", // workbench.action.splitEditorDown
+      "cmd-#": "project_panel::CollapseAllEntries", // shift+cmd+3: workbench.files.action.collapseExplorerFolders
+      "alt-cmd-c alt-cmd-h": "agent::ToggleFocus", // Copilot chat focus -> Zed agent panel
+      // Go extension test commands -> tasks in ~/.config/zed/tasks.json
+      "cmd-shift-t cmd-shift-c": ["task::Spawn", { "task_name": "go: test coverage (package)" }], // go.test.coverage
+      "cmd-shift-t cmd-shift-p": ["task::Spawn", { "task_name": "go: test package" }], // go.test.package
+      "cmd-shift-t cmd-shift-a": ["task::Spawn", { "task_name": "go: test workspace" }], // go.test.workspace
+      "cmd-t cmd-f": ["task::Spawn", { "task_name": "go: generate test for function" }], // go.test.generate.function
+    },
+  },
+  // Default keys you moved or removed in VS Code.
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-k cmd-t": null, // theme picker binding removed (key reused for type definition)
+      "f6": null, // workbench.action.focusNextPart removed
+      "ctrl-+": "workspace::NewTerminal", // ctrl+shift+=: workbench.action.terminal.new
+      "ctrl-~": null, // ctrl+shift+`: moved to ctrl+shift+=
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // Zed has no "peek" view; these open the target in a split instead.
+      "cmd-k cmd-t": "editor::GoToTypeDefinitionSplit", // editor.action.peekTypeDefinition
+      "cmd-k cmd-d": "editor::GoToDefinitionSplit", // editor.action.peekDefinition
+    },
+  },
+  {
+    // "mode == full" limits this to code editors, so the search bar keeps alt-cmd-c for case sensitivity.
+    "context": "Editor && mode == full",
+    "bindings": {
+      "alt-cmd-c": "workspace::CopyRelativePath", // copyRelativeFilePath
+      // Vim mode binds ctrl-g to vim::ShowLocation, which beats the default go-to-line binding.
+      // User keymap loads last, so this restores the VS Code behavior.
+      "ctrl-g": "go_to_line::Toggle", // workbench.action.gotoLine
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "ctrl-n": "project_panel::NewFile", // explorer.newFile
+      "ctrl-shift-n": "project_panel::NewDirectory", // explorer.newFolder
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      // Inserts a newline in Claude Code instead of submitting.
+      "shift-enter": ["terminal::SendText", "\\\r\n"],
+      "ctrl-shift-j": "pane::ActivateNextItem", // workbench.action.terminal.focusNext
+      "ctrl-shift-k": "pane::ActivatePreviousItem", // workbench.action.terminal.focusPrevious
+      "cmd-}": null, // shift+cmd+]: moved to ctrl-shift-j
+      "cmd-{": null, // shift+cmd+[: moved to ctrl-shift-k
+    },
+  },
+  // VSCodeVim: vim.insertModeKeyBindings
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore", // jk -> Esc
+    },
+  },
+  // VSCodeVim: vim.normalModeKeyBindingsNonRecursive
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "shift-j": "editor::MoveLineDown", // J: editor.action.moveLinesDownAction
+      "shift-k": "editor::MoveLineUp", // K: editor.action.moveLinesUpAction
+    },
+  },
+  // VSCodeVim: vim.visualModeKeyBindingsNonRecursive
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      // "p g v y" re-yanked the pasted text so the register survived the paste.
+      // Zed does that directly with preserve_clipboard.
+      "p": ["vim::Paste", { "preserve_clipboard": true }],
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp",
+    },
+  },
+]

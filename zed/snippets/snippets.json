@@ -1,0 +1,95 @@
+{
+  "Import": {
+    "prefix": "imp",
+    "body": [
+      "import {$2} from '$1'",
+      "$0"
+    ]
+  },
+  "Blank useEffect": {
+    "prefix": "bue",
+    "body": [
+      "useEffect(() => {\n",
+      "  $1\n",
+      "}, [])"
+    ],
+    "description": "Create a new call to useEffect"
+  },
+  "Local Index Export": {
+    "prefix": "lie",
+    "body": [
+      "export * from '$1'",
+      "$0"
+    ]
+  },
+  "Export Arrow Function": {
+    "prefix": "eaf",
+    "body": [
+      "export const $1 = ($2) => {",
+      "  $0",
+      "}"
+    ]
+  },
+  "New Function Component": {
+    "prefix": "nfc",
+    "body": [
+      "import React from 'react'",
+      "",
+      "// eslint-disable-next-line @typescript-eslint/no-empty-interface",
+      "export interface $1Props {",
+      "  $2",
+      "}",
+      "export const $1: React.FC<$1Props> = () => {",
+      "  $0",
+      "  return (",
+      "    <div>",
+      "      this is a <div>$1</div>",
+      "    </div>",
+      "  )",
+      "}"
+    ]
+  },
+  "New Story": {
+    "prefix": "newstory",
+    "body": [
+      "import { Story, Meta } from '@storybook/react'",
+      "import React from 'react'",
+      "import { $1, $1Props } from './$2'",
+      "",
+      "export default {",
+      "component: $1,",
+      "title: '$3/$1',",
+      "} as Meta",
+      "",
+      "const Template: Story<$1Props> = (args) => <$1 {...args} />",
+      "",
+      "export const Primary = Template.bind({})",
+      "Primary.args = {",
+      "  $4",
+      "}"
+    ]
+  },
+  "Generate useCallback": {
+    "prefix": "buc",
+    "body": [
+      "const $1Callback = useCallback(($2) => {",
+      "\t$0",
+      "}, [])"
+    ]
+  },
+  "New Unit Test": {
+    "prefix": "nut",
+    "body": [
+      "/// <reference types='jest' />",
+      "import * as sut from './$1'",
+      "",
+      "describe('$1 Unit Tests', () => {",
+      "\tit('functions', () => {",
+      "\t\t$0",
+      "\t\texpect(1).toEqual(2)",
+      "\t})",
+      "})",
+      ""
+    ]
+  }
+}

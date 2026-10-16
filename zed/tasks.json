@@ -1,0 +1,30 @@
+// Zed tasks: shell commands that run in Zed's terminal and can read editor state
+// through $ZED_* variables. They replace the VS Code Go extension's test commands
+// and are bound to the same keys in keymap.json. Run any of them from the command
+// palette with "task: spawn".
+[
+  {
+    "label": "go: test package",
+    "command": "go test .",
+    "cwd": "$ZED_DIRNAME",
+  },
+  {
+    "label": "go: test workspace",
+    "command": "go test ./...",
+    "cwd": "$ZED_WORKTREE_ROOT",
+  },
+  {
+    // VS Code painted coverage in the gutter; Zed can't, so this opens Go's HTML coverage report.
+    "label": "go: test coverage (package)",
+    "command": "go test -coverprofile=\"$TMPDIR/zed-go-cover.out\" . && go tool cover -html=\"$TMPDIR/zed-go-cover.out\"",
+    "cwd": "$ZED_DIRNAME",
+  },
+  {
+    // Requires gotests: go install github.com/cweill/gotests/gotests@latest
+    // $ZED_SYMBOL is the breadcrumb under the cursor, e.g. "func (s *Store) Get";
+    // awk keeps the last word so gotests receives just the function name.
+    "label": "go: generate test for function",
+    "command": "gotests -w -only \"^$(echo \"$ZED_SYMBOL\" | awk '{print $NF}')$\" \"$ZED_FILE\"",
+    "cwd": "$ZED_DIRNAME",
+  },
+]

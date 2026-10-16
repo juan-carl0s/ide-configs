@@ -1,0 +1,131 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+//
+// Migrated from VS Code on 2026-10-08. Backup of the previous file:
+// ~/.config/zed/settings.json.bak-2026-10-08
+{
+  "cli_default_open_behavior": "new_window",
+  "markdown_preview": {
+    "limit_content_width": false
+  },
+  "project_panel": {
+    "indent_size": 20.0,
+    "dock": "left"
+  },
+  "vim_mode": true,
+  // VS Code: "editor.lineNumbers": "relative"
+  "relative_line_numbers": "enabled",
+  "gutter": {
+    "line_numbers": true
+  },
+  // VS Code: "editor.minimap.enabled": false
+  "minimap": {
+    "show": "never"
+  },
+  // VS Code: "editor.formatOnSave": true
+  "format_on_save": "on",
+  // VS Code: "editor.rulers": [80]
+  "wrap_guides": [
+    80
+  ],
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "base_keymap": "VSCode",
+  "ui_font_size": 24.0,
+  "buffer_font_size": 15.0,
+  // VS Code: "workbench.colorTheme": "Solarized Dark" (provided by the "solarized" extension below)
+  "theme": {
+    "mode": "dark",
+    "light": "Solarized Light",
+    "dark": "One Dark",
+  },
+  // Zed equivalents of the VS Code extensions you use. Zed installs these on startup.
+  // Go, TypeScript, ESLint, Prettier, Tailwind, Python, YAML, JSON and C/C++ are built in.
+  "auto_install_extensions": {
+    "solarized": true, // Solarized Dark theme
+    "dockerfile": true, // docker.docker, ms-azuretools.vscode-docker
+    "docker-compose": true, // docker compose language support
+    "terraform": true, // hashicorp.terraform
+    "toml": true, // tamasfe.even-better-toml
+    "dart": true, // dart-code.dart-code, dart-code.flutter
+    "swift": true, // swiftlang.swift-vscode
+    "solidity": true, // nomicfoundation.hardhat-solidity
+    "make": true, // ms-vscode.makefile-tools
+    "mermaid": true, // bierner.markdown-mermaid, mermaidchart.vscode-mermaid-chart
+    "rainbow-csv": true, // mechatroner.rainbow-csv
+    "env": true, // mikestead.dotenv
+    "github-actions": true, // github.vscode-github-actions
+    "git-firefly": true, // syntax for commit messages, .gitignore, rebase todo files
+  },
+  // VS Code: "github.copilot.enable": { "*": false, ... } turned inline AI completions off everywhere.
+  "edit_predictions": {
+    "provider": "none"
+  },
+  "languages": {
+    // VS Code: "[python]": { "editor.formatOnSave": false }
+    "Python": {
+      "format_on_save": "off"
+    },
+    // VS Code: "[markdown]": { "editor.formatOnSave": false }
+    "Markdown": {
+      "format_on_save": "off"
+    },
+    // VS Code: "editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" }
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TSX": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    // VS Code used the Red Hat YAML formatter (yaml-language-server) instead of Prettier.
+    "YAML": {
+      "formatter": "language_server"
+    },
+    // VS Code: "gopls": { "ui.semanticTokens": true }. Zed must also request the tokens.
+    "Go": {
+      "semantic_tokens": "combined"
+    }
+  },
+  "lsp": {
+    // VS Code: "gopls": { "formatting.gofumpt": true, "ui.semanticTokens": true }
+    "gopls": {
+      "initialization_options": {
+        "gofumpt": true,
+        "semanticTokens": true
+      }
+    },
+    // VS Code: "yaml.format.singleQuote": true
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "format": {
+            "singleQuote": true
+          }
+        }
+      }
+    }
+  },
+}
